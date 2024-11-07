@@ -59,7 +59,7 @@ bash src/run_all.sh
 ```
 
 #### [Optional] WandB integration
-You can use [WandB](https://wandb.ai/site) to monitor the training process. Turn on the `wandb` flag in the configuration file and login to QanB.
+You can use [WandB](https://wandb.ai/site) to monitor the training process. Turn on the `wandb` flag in the configuration file and login to WandB.
 
 ```bash
 wandb login

@@ -84,6 +84,8 @@ class DataProcessor:
                 key = f"{fold}/"+i+"/pred"
             else:
                 key = i+"/pred"
+            if not os.path.exists(os.path.dirname(file_name)):
+                os.makedirs(os.path.dirname(file_name))
             pred_df.query("lightcone_id==@i").to_hdf(file_name, key=key, mode='a')
 
     def data_rename(self):
