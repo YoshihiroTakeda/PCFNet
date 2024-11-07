@@ -1,0 +1,17 @@
+{
+	"name": "PCFNet_devcontainer",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "pcfnet",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {	
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.tensorboard",
+				"charliermarsh.ruff"
+			]
+		}
+	}
+}

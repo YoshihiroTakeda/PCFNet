@@ -1,0 +1,21 @@
+services:
+  pcfnet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    shm_size: '16gb'
+    volumes:
+      - ./:/workspace
+    environment:
+      - UID=${UID:-1000}
+      - GID=${GID:-1000}
+    deploy:
+      resources:
+        limits:
+          cpus: '4.00'
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    tty: true

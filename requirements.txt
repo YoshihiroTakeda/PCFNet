@@ -1,0 +1,14 @@
+astropy==6.1.4
+tqdm
+numpy
+dask==2024.10.0
+pandas==2.2.3
+pandarallel==1.6.5
+h5py==3.12.1
+tables==3.10.1
+scipy==1.14.1
+scikit-learn==1.5.2
+torch==2.3.1
+torchvision==0.18.1
+tensorboard==2.18.0
+pyro-ppl==1.9.1

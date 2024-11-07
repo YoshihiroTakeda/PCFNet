@@ -1,0 +1,106 @@
+# general
+logfile: output/logs/PCFNet.log
+# data setting
+limit_mag5: 'data/depthmap/limit_mag5.yaml'
+file_name: 'output/preprocess/simdata4pcfnet.h5'
+PCcone:
+    "1918": data/sim/lightcone_1918_hsc_s20a.h5
+    "2216": data/sim/lightcone_2216_hsc_s20a.h5
+    "2514": data/sim/lightcone_2514_hsc_s20a.h5
+    "2812": data/sim/lightcone_2812_hsc_s20a.h5
+    "3110": data/sim/lightcone_3110_hsc_s20a.h5
+    "3408": data/sim/lightcone_3408_hsc_s20a.h5
+    "3706": data/sim/lightcone_3706_hsc_s20a.h5
+    "4004": data/sim/lightcone_4004_hsc_s20a.h5
+    "4302": data/sim/lightcone_4302_hsc_s20a.h5
+    "4600": data/sim/lightcone_4600_hsc_s20a.h5
+    "4898": data/sim/lightcone_4898_hsc_s20a.h5
+    "4900": data/sim/lightcone_4900_hsc_s20a.h5
+    "5000": data/sim/lightcone_5000_hsc_s20a.h5
+    "5100": data/sim/lightcone_5100_hsc_s20a.h5
+    "5150": data/sim/lightcone_5150_hsc_s20a.h5
+    "5155": data/sim/lightcone_5155_hsc_s20a.h5
+    "5160": data/sim/lightcone_5160_hsc_s20a.h5
+    "5180": data/sim/lightcone_5180_hsc_s20a.h5
+    "5190": data/sim/lightcone_5190_hsc_s20a.h5
+    "5196": data/sim/lightcone_5196_hsc_s20a.h5
+halodata_path: data/sim/PCcone_z0halomass.csv
+obs_ids: ['DEEP2-3', 'COSMOS', 'XMM-LSS', 'ELAIS-N1']
+obs_file_name: 'output/preprocess/obsdata4pcfnet.h5'
+obs_files:
+    DEEP2-3: 'data/obs/gdropout_DEEP2-3.csv'
+    COSMOS: 'data/obs/gdropout_COSMOS.csv'
+    XMM-LSS: 'data/obs/gdropout_XMM-LSS.csv'
+    ELAIS-N1: 'data/obs/gdropout_ELAIS-N1.csv'
+obsmask_files:
+    DEEP2-3: 'data/obs/mask_DEEP2-3.csv'
+    COSMOS: 'data/obs/mask_COSMOS.csv'
+    XMM-LSS: 'data/obs/mask_XMM-LSS.csv'
+    ELAIS-N1: 'data/obs/mask_ELAIS-N1.csv'
+column_mapping_sim2obs:
+    g: HSC_g_cut
+    r: HSC_r_cut
+    i: HSC_i_cut
+    z: HSC_z_cut
+    y: HSC_y_cut
+surface_density_radius: [0.5, 1, 1.8, 2, 2.6, 3, 4]
+dth: 5.5
+mth: 1.0e+4
+fov_r_arcmin: 5
+min_pc_member: 5
+min_completeness: 0.5
+downsampling: True
+# model
+patience: 3
+step_size: 4
+gamma: 0.8
+batch_size: 512
+lr: 0.002
+model_args:
+    dim: 14
+    k: 2
+    neighbor: 5
+    connection: concat
+    hidden_num: [16,32,64,128,256]
+early_stoping_criteria: loss
+epochs: 50
+start_epoch: 0
+early_stop_epoch: 15
+regularization_factor: 0.001
+verpose: 5
+warmup: 20
+num_workers: 4
+training_downsampling: True
+using_data: ['ra_arcmin', 'dec_arcmin', 'comoving_z', 'g-i', 'HSC_i_cut', 'HSC_g_cut', 'HSC_r_cut']
+model_using_data: ['ra_arcmin', 'dec_arcmin', 'g-i', 'HSC_i_cut']
+val_ids: 
+    - ['5155']
+test_ids: ['5160', '5180', '5190', '5196']
+param: 
+    mean: [0.0, 0.0, 0.0, 0.0, 25.388266]
+    std: [1.0, 1.0, 1.0, 0.517116, 0.470234]
+log_dir: 'output/logs/PCFNet/PCFNet_{}'
+model_name: 'output/pytorch_model/PCFNet_{}.pth'
+trainedmodel_name: 'output/pytorch_model/PCFNet_{}.pth'
+result_pred_name: 'output/result/result_pred_PCFNet.h5'
+train_flg: true
+
+# obserbation
+obs_pred_name: 'output/result/obs_pred_PCFNet.h5'
+
+# premodel
+coln: 3
+n_gaussians: 3
+premodel_hidden: 20
+predevice: cuda
+preepochs: 100000
+premodel_using_data: ['HSC_g_cut', 'HSC_r_cut', 'HSC_i_cut']
+prelog_dir: 'logs/PCFNet/MDN_{}'
+premodel_name: 'output/pytorch_model/MDN_{}.pth'
+pretrainedmodel_name: 'output/pytorch_model/MDN_{}.pth'
+premodel_flg: true
+pretrain_flg: true
+
+
+### wandb
+wandb: true

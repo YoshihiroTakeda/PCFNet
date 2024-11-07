@@ -1,0 +1,5 @@
+wandb==0.18.5
+torch-tb-profiler==0.4.3
+notebook==7.2.2
+matplotlib==3.9.2
+build==1.2.2.post1

@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {
+      "name": "wandb"
+    },
+    "selection": {
+      "grid": {
+            "type": "interval",
+            "bind": "scales"
+          }
+    },
+    "title": "PR Curves",
+    "mark" : { "type": "line", "filled" : false},
+    "encoding": {
+        "x": {
+          "title" : "Recall",
+          "field": "${field:x-axis:recall}",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 1] 
+          }
+        },
+        "y": {
+          "title" : "Precision",
+          "field": "${field:y-axis:precision}",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 1]
+          }
+        },
+        "threshold": {
+          "title" : "Threshold",
+          "field": "${field:threshold:threshold}",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#4CC9FE"
+        },
+        "opacity" : {
+          "value" : 0.8
+        },
+            "tooltip": [
+              {"field": "${field:x-axis:recall}", "type": "quantitative", "title": "Recall","format": ".3f"},
+              {"field": "${field:y-axis:precision}", "type": "quantitative", "title": "Precision", "format": ".3f"},
+              {"field": "${field:threshold:threshold}", "type": "quantitative", "title": "Thresholds", "format": ".3f"}
+      ]
+    }
+}
