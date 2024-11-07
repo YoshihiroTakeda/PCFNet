@@ -36,6 +36,8 @@ if __name__ == '__main__':
         import wandb
         wandb.login()
 
+    if not os.path.exists(os.path.dirname(args.logfile)):
+        os.makedirs(os.path.dirname(args.logfile))
     flh = logging.FileHandler(args.logfile)
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.DEBUG,
                     handlers=[flh])
