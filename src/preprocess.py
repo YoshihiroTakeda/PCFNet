@@ -131,7 +131,9 @@ if __name__ == '__main__':
     for i in tqdm(pc):
         targets[i] = pc[i].query(f"radius_arcmin <= 60 - {args.fov_r_arcmin}")
         neighbors[i] = util.neighbors_search(pc[i], targets[i], r_arcmin=args.fov_r_arcmin)
-        
+    
+    if not os.path.exists(os.path.dirname(args.file_name)):
+        os.makedirs(os.path.dirname(args.file_name))
     util.save_data4pcfnet(args.file_name, targets, neighbors, pc)
     
     print('done!')

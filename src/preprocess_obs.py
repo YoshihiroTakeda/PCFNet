@@ -47,7 +47,9 @@ if __name__ == '__main__':
     neighbors = {}
     for name in tqdm(obsdata):
         neighbors[name] = util.neighbors_search(obsdata[name], targets[name], r_arcmin=args.fov_r_arcmin)
-        
+    
+    if not os.path.exists(os.path.dirname(args.obs_file_name)):
+        os.makedirs(os.path.dirname(args.obs_file_name))
     util.save_data4pcfnet(args.obs_file_name, targets, neighbors, obsdata, maskdata)
 
     print('done!')

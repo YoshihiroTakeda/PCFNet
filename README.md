@@ -34,7 +34,7 @@ python -m pip install -e .[all]
 ### Data Preparation
 1. Prepare the data for training and prediction
     - Simulation data (PCcone): Please contact the authors of Araya-Araya et al. (2021) for the data.
-    - Observation data: Please obtain from HSC-SSP data release.
+    - Observation data: Please obtain the obserbational data and random points data (maskdata) from HSC-SSP data release.
     - Original data: Please prepare the data in the same format as the simulation data and observation data and write codes like `preprocess.py` to convert the format for PCFNet. **You have to carefully check the consistency between the simulation and observation.**
     - Depth information : Please prepare the 5$\sigma$ depth information in the PCcone as yaml format.
 2. Place the data in the `data` directory. For exmaple, 
@@ -44,7 +44,7 @@ python -m pip install -e .[all]
 3. Modify the configuration file `config/PCFNet_configure.yaml` to match the data paths. You may also need additional modifications for your computational environment (batchsize, iteration times, etc.)
 
 ### Data Initialization & Train & Predict
-You make sure that the cofiguration file `config/PCFNet.yaml` is correctly set up.
+You make sure that the cofiguration file `config/PCFNet_configure.yaml` is correctly set up.
 Then, run the following commands in the terminal.
 
 ```bash
