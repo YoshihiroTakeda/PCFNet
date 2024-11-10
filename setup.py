@@ -9,6 +9,7 @@ setup(
         "numpy",
         "dask",
         "pandas",
+        "pandarallel",
         "h5py",
         "tables",
         "scipy",
