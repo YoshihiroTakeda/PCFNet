@@ -1,7 +1,7 @@
 # general
 logfile: output/logs/PCFNet.log
 # data setting
-limit_mag5: 'data/depthmap/limit_mag5.yaml'
+limit_mag5: 'data/depth/limit_mag5.yaml'
 file_name: 'output/preprocess/simdata4pcfnet.h5'
 PCcone:
     "1918": data/sim/lightcone_1918_hsc_s20a.h5
@@ -32,11 +32,11 @@ obs_files:
     COSMOS: 'data/obs/gdropout_COSMOS.csv'
     XMM-LSS: 'data/obs/gdropout_XMM-LSS.csv'
     ELAIS-N1: 'data/obs/gdropout_ELAIS-N1.csv'
-obsmask_files:
-    DEEP2-3: 'data/obs/mask_DEEP2-3.csv'
-    COSMOS: 'data/obs/mask_COSMOS.csv'
-    XMM-LSS: 'data/obs/mask_XMM-LSS.csv'
-    ELAIS-N1: 'data/obs/mask_ELAIS-N1.csv'
+obsrandom_files:
+    DEEP2-3: 'data/obs/random_DEEP2-3.csv'
+    COSMOS: 'data/obs/random_COSMOS.csv'
+    XMM-LSS: 'data/obs/random_XMM-LSS.csv'
+    ELAIS-N1: 'data/obs/random_ELAIS-N1.csv'
 column_mapping_sim2obs:
     g: HSC_g_cut
     r: HSC_r_cut
@@ -57,7 +57,7 @@ gamma: 0.8
 batch_size: 512
 lr: 0.002
 model_args:
-    dim: 14
+    dim: 14  # the number of input features + n_gaussians * 3
     k: 2
     neighbor: 5
     connection: concat
@@ -103,4 +103,4 @@ pretrain_flg: true
 
 
 ### wandb
-wandb: true
+wandb: false

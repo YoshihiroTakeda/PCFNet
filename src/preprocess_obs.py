@@ -22,16 +22,16 @@ if __name__ == '__main__':
     args = util.load_args_from_command_and_yaml(parser)
 
     obsdata = {}
-    maskdata = {}
+    randomdata = {}
     for name, path in args.obs_files.items():
         obsdata[name] = pd.read_csv(path)
-    for name, path in args.obsmask_files.items():
-        maskdata[name] = pd.read_csv(path)
+    for name, path in args.obsrandom_files.items():
+        randomdata[name] = pd.read_csv(path)
     
     ### target selection
     targets = {}
-    for name in tqdm(maskdata):
-        x, y, z = util.spherical2cartesian(maskdata[name].ra_arcmin.values, maskdata[name].dec_arcmin.values, 1)
+    for name in tqdm(randomdata):
+        x, y, z = util.spherical2cartesian(randomdata[name].ra_arcmin.values, randomdata[name].dec_arcmin.values, 1)
         xyz = np.vstack([x,y,z]).T
         tree = ss.KDTree(xyz, leafsize=10)
         x_c, y_c, z_c = util.spherical2cartesian(obsdata[name].ra_arcmin.values, obsdata[name].dec_arcmin.values, 1)
@@ -51,6 +51,6 @@ if __name__ == '__main__':
     
     if not os.path.exists(os.path.dirname(args.obs_file_name)):
         os.makedirs(os.path.dirname(args.obs_file_name))
-    util.save_data4pcfnet(args.obs_file_name, targets, neighbors, obsdata, maskdata)
+    util.save_data4pcfnet(args.obs_file_name, targets, neighbors, obsdata, randomdata)
 
     print('done!')

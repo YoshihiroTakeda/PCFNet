@@ -196,7 +196,7 @@ def neighbors_search(data, targets, r_arcmin=5, workers=4, leafsize=10):
     return neighbors
     
     
-def save_data4pcfnet(h5filename, targets, neighbors, obsdata, maskdata=None):
+def save_data4pcfnet(h5filename, targets, neighbors, obsdata, randomdata=None):
     h5file = h5py.File(h5filename, 'w')
     for i in targets:
         h5file.create_group(i)
@@ -208,8 +208,8 @@ def save_data4pcfnet(h5filename, targets, neighbors, obsdata, maskdata=None):
     h5file.close()
     for i in obsdata:        
         obsdata[i].to_hdf(h5filename, key=i+'/data')
-        if maskdata is not None:
-            maskdata[i].to_hdf(h5filename, key=i+'/mask')
+        if randomdata is not None:
+            randomdata[i].to_hdf(h5filename, key=i+'/random')
 
 
 def load_args_from_command_and_yaml(parser):

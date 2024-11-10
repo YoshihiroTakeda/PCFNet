@@ -29,11 +29,11 @@ def load_obs(filename):
     with h5py.File(filename, 'r') as f:
         keys = list(f.keys())
     obsdata = {}
-    maskdata = {}
+    randomdata = {}
     for key in keys:
         obsdata[key] = pd.read_hdf(filename, key=key+'/data')
-        maskdata[key] = pd.read_hdf(filename, key=key+'/mask')
-    return obsdata, maskdata
+        randomdata[key] = pd.read_hdf(filename, key=key+'/random')
+    return obsdata, randomdata
 
 
 if __name__ == '__main__':
@@ -74,11 +74,11 @@ if __name__ == '__main__':
         # replace with 2\sigma
         for band in ['g', 'r','i', 'z', 'y']:
             df['HSC_'+band+'_cut'] = np.where(
-                df['HSC_'+band+'_new']>lim_mag5['COSMOS'][band]+2.5*np.log10(5/2),
-                lim_mag5['COSMOS'][band]+2.5*np.log10(5/2),
+                df['HSC_'+band+'_new']>lim_mag5[band]+2.5*np.log10(5/2),
+                lim_mag5[band]+2.5*np.log10(5/2),
                 df['HSC_'+band+'_new'])
         # truncate g band to 2\sigma limit
-        df = df[df['HSC_g_new']<=lim_mag5['COSMOS']['g']+2.5*np.log10(5/2)]
+        df = df[df['HSC_g_new']<=lim_mag5['g']+2.5*np.log10(5/2)]
         pc[key] = df.query(query).copy()
         pc[key]['g-i'] = pc[key].eval('HSC_g_cut - HSC_i_cut')
         pc[key]['ra'] = (pc[key]['ra']+180.) % 360 - 180.
@@ -92,10 +92,10 @@ if __name__ == '__main__':
     pc_all = pd.concat([df for df in pc.values()])
     
     if args.downsampling:
-        obsdata, maskdata = load_obs(args.obs_file_name)
+        obsdata, randomdata = load_obs(args.obs_file_name)
         obs_all = pd.concat([df for df in obsdata.values()])
-        mask_all = pd.concat([df for df in maskdata.values()])
-        alpha = (pc_all.shape[0]/len(pc)/np.pi) / (obs_all.shape[0]/mask_all.shape[0]*100.*3600.)  # downsampling rate
+        random_all = pd.concat([df for df in randomdata.values()])
+        alpha = (pc_all.shape[0]/len(pc)/np.pi) / (obs_all.shape[0]/random_all.shape[0]*100.*3600.)  # downsampling rate
         rng = np.random.default_rng(100)
         for name in pc:
             pc[name] = pc[name].sample(
