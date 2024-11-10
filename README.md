@@ -28,7 +28,7 @@ The easiest way to setup the environment is to use VSCode with Docker.
 #### 1.2 Pip
 You can also set up PCFNet as library in your environment with `pip`. Required packages are automatically installed.
 ```bash
-python -m pip install -e .[all]
+python -m pip install -e ".[all]"
 ```
 
 ### 2. Data Preparation
