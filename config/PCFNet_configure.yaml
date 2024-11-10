@@ -95,7 +95,7 @@ premodel_hidden: 20
 predevice: cuda
 preepochs: 100000
 premodel_using_data: ['HSC_g_cut', 'HSC_r_cut', 'HSC_i_cut']
-prelog_dir: 'logs/PCFNet/MDN_{}'
+prelog_dir: 'output/logs/PCFNet/MDN_{}'
 premodel_name: 'output/pytorch_model/MDN_{}.pth'
 pretrainedmodel_name: 'output/pytorch_model/MDN_{}.pth'
 premodel_flg: true
