@@ -5,6 +5,7 @@ setup(
     name="pcfnet",
     version="0.1.0",
     install_requires=[
+        "astropy",
         "tqdm",
         "numpy",
         "dask",
