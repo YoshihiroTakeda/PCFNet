@@ -5,12 +5,10 @@ setup(
     name="pcfnet",
     version="0.1.0",
     install_requires=[
-        "astropy",
         "tqdm",
         "numpy",
         "dask",
         "pandas",
-        "pandarallel",
         "h5py",
         "tables",
         "scipy",
@@ -22,6 +20,8 @@ setup(
         ],
     extras_require={
         "all": [
+            "astropy",
+            "pandarallel",
             "wandb<=0.18.5"
         ],
     },
