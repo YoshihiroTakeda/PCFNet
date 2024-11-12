@@ -15,7 +15,7 @@ We recommend using a virtual environment to run the code.
 #### 1.1 VSCode & Docker
 The easiest way to setup the environment is to use VSCode with Docker.
 1. Install [VSCode](https://code.visualstudio.com/) & [Docker](https://www.docker.com/)
-2. Install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
+2. Install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in VSCode
 3. Open the project folder (`your_workdir/pcfnet`) in VSCode
 4. Set up for the docker environment
     - To make the user id and group id consistent between the host and the container, excute the `make_env4docker.sh` script in your terminal. Then, `.env` file will be created.
@@ -34,7 +34,7 @@ python -m pip install -e ".[all]"
 ### 2. Data Preparation
 1. Prepare the data for training and prediction
     - Simulation data (PCcone): Please contact the authors of Araya-Araya et al. (2021).
-    - Observation data: Please obtain the obserbational data and random points data (randomdata) from HSC-SSP data release.
+    - Observation data: Please obtain the obserbational data and random points data from HSC-SSP data release.
     - Depth information : Please prepare the $5\sigma$ depth information in the PCcone as yaml format.
     
     ※  When you want to use original data, please prepare the data in the same format as the simulation data and observation data and write codes like `preprocess.py` to convert the format for PCFNet. **You have to carefully check the consistency between the simulation and observation.**
@@ -81,7 +81,7 @@ python src/train.py --config config/PCFNet_configure.yaml --device cuda:0
 ※ When pretraining the MDN model, the GPU setting is controlled by the `predevice` option in the configuration file.
 
 
-### 4. Evaluation
+### 4. Results
 You can quickly view the results in the jupyter notebook `example/check_result.ipynb`.
 
 
