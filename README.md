@@ -35,7 +35,7 @@ python -m pip install -e ".[all]"
 1. Prepare the data for training and prediction
     - Simulation data (PCcone): Please contact the authors of Araya-Araya et al. (2021).
     - Observation data: Please obtain the obserbational data and random points data (randomdata) from HSC-SSP data release.
-    - Depth information : Please prepare the 5$\sigma$ depth information in the PCcone as yaml format.
+    - Depth information : Please prepare the $5\sigma$ depth information in the PCcone as yaml format.
     
     ※  When you want to use original data, please prepare the data in the same format as the simulation data and observation data and write codes like `preprocess.py` to convert the format for PCFNet. **You have to carefully check the consistency between the simulation and observation.**
 2. Place the data in the `data` directory. For exmaple, 
@@ -88,7 +88,7 @@ You can quickly view the results in the jupyter notebook `example/check_result.i
 
 # References
 - Araya-Araya et al. 2021, [MNRAS](https://doi.org/10.1093/mnras/stab1133), 504, 5054. 
-
+- Aihara et al. 2022, [PASJ](https://doi.org/10.1093/pasj/psab122), 74, 247.
 
 # Citation
 If you use this code for your research, please cite our paper.
