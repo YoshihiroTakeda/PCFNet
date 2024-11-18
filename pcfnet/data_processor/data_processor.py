@@ -43,6 +43,7 @@ class DataProcessor:
                  use_columns: list[str] = ["ra", "dec",],
                  column_mapping: Optional[dict] = None,
                  n_gaussians: int = 3,
+                 flg_column: str = "flg",
                  ):
         self.file_name = file_name
         self.min_pc_member = min_pc_member
@@ -52,6 +53,7 @@ class DataProcessor:
         self.use_columns = use_columns
         self.column_mapping = column_mapping
         self.n_gaussians = n_gaussians
+        self.flg_column = flg_column
         self.data_load()
 
     def data_load(self,):
@@ -145,8 +147,8 @@ class DataProcessor:
         X = pd.concat([self.data[i][self.use_columns] for i in ids]).reset_index(drop=True)
         index = [[c + cum_length_df[num], self.neighbors[i][j] + cum_length_df[num]]
                  for num, i in enumerate(ids) for j, c in enumerate(self.targets[i])]
-        if "flg" in self.data[list(ids)[0]].columns:
-            y = pd.concat([self.data[i][["flg"]] for i in ids]).to_numpy().reshape(-1)
+        if self.flg_column in self.data[list(ids)[0]].columns:
+            y = pd.concat([self.data[i][[self.flg_column]] for i in ids]).to_numpy().reshape(-1)
             return X, index, y
         else:
             return X, index

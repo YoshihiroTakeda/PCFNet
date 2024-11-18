@@ -1,0 +1,64 @@
+# general
+logfile: output/logs/mock_PCFNet.log
+# data setting
+file_name: 'output/preprocess/mock4pcfnet.h5'
+surface_density_radius: [1, 4, 8, 12]
+fov_r_arcmin: 5
+min_pc_member: 5
+min_completeness: 0.5
+# model
+patience: 3
+step_size: 4
+gamma: 0.8
+batch_size: 128
+lr: 0.002
+model_args:
+    dim: 12  # the number of input features + n_gaussians * 3 + 1
+    k: 2
+    neighbor: 3
+    connection: concat
+    hidden_num: [16,32,64,128,256]
+early_stoping_criteria: loss
+epochs: 50
+start_epoch: 0
+early_stop_epoch: 10
+regularization_factor: 0.001
+verpose: 1
+warmup: 0
+num_workers: 2
+training_downsampling: True
+using_data: ['ra_arcmin', 'dec_arcmin', 'r', 'label', 'mock_mag1', 'mock_mag2', 'mock_mag3']
+model_using_data: ['ra_arcmin', 'dec_arcmin',]
+z_column: 'r'
+flg_column: 'label'
+val_ids: 
+    - ['mock_7']
+test_ids: ['mock_8', 'mock_9']
+param: 
+    mean: [0.0, 0.0,]
+    std: [1.0, 1.0,]
+log_dir: 'output/logs/mock_PCFNet/mock_PCFNet_{}'
+model_name: 'output/pytorch_model/mock_PCFNet_{}.pth'
+trainedmodel_name: 'output/pytorch_model/mock_PCFNet_{}.pth'
+result_pred_name: 'output/result/result_pred_mock_PCFNet.h5'
+train_flg: true
+
+# obserbation
+obs_pred_name: 'output/result/obs_pred_mock_PCFNet.h5'
+
+# premodel
+coln: 3
+n_gaussians: 3
+premodel_hidden: 20
+predevice: cuda
+preepochs: 100000
+premodel_using_data: ['mock_mag1', 'mock_mag2', 'mock_mag3']
+prelog_dir: 'output/logs/mock_PCFNet/MDN_{}'
+premodel_name: 'output/pytorch_model/mock_MDN_{}.pth'
+pretrainedmodel_name: 'output/pytorch_model/mock_MDN_{}.pth'
+premodel_flg: true
+pretrain_flg: true
+
+
+### wandb
+wandb: false

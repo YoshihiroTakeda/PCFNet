@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 config_file="config/PCFNet_configure.yaml"
 echo "Running the pipeline with the config file: $config_file"
 echo "#########Preprocessing the data##########"

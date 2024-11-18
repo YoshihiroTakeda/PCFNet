@@ -71,8 +71,10 @@ verpose: 5
 warmup: 20
 num_workers: 4
 training_downsampling: True
-using_data: ['ra_arcmin', 'dec_arcmin', 'comoving_z', 'g-i', 'HSC_i_cut', 'HSC_g_cut', 'HSC_r_cut']
+using_data: ['ra_arcmin', 'dec_arcmin', 'comoving_z', 'g-i', 'HSC_i_cut', 'HSC_g_cut', 'HSC_r_cut', 'flg']
 model_using_data: ['ra_arcmin', 'dec_arcmin', 'g-i', 'HSC_i_cut']
+z_column: 'comoving_z'
+flg_column: 'flg'
 val_ids: 
     - ['5155']
 test_ids: ['5160', '5180', '5190', '5196']

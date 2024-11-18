@@ -275,6 +275,7 @@ class Trainer:
             num_workers=self.args.num_workers,
             use_columns=self.args.using_data,
             n_gaussians=self.args.n_gaussians,
+            flg_column=self.args.flg_column,
         )
         train_ids, val_ids, test_ids = data_processor.assign_ids(self.args.val_ids, self.args.test_ids)
         param = util.param_extend(self.args.param, self.args.model_args["dim"])

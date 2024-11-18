@@ -2,7 +2,7 @@ import os
 from collections import defaultdict
 import logging
 import importlib.util
-from tqdm import trange
+from tqdm.auto import trange
 from tqdm.contrib.logging import logging_redirect_tqdm
 
 import numpy as np
@@ -30,6 +30,7 @@ torch.set_num_threads(max(1, torch.get_num_threads()-2))
 class Pretrainer:
     def __init__(self, args):
         self.args = args
+        self.param = None
 
     def load_model(self,):
         pyro.clear_param_store()
@@ -59,7 +60,9 @@ class Pretrainer:
 
     def get_dataloader(self, df: pd.DataFrame, true: bool = True):
         if true:
-            true_data = (df["comoving_z"].values - 7000) / 1000
+            if self.param is None:
+                self.param = {"mean": df[self.args.z_column].mean(), "std": df[self.args.z_column].mean()}
+            true_data = ((df[self.args.z_column] - self.param["mean"]) / self.param["std"]).values
         else:
             true_data = np.array([np.nan])
         exp_data = df[self.args.premodel_using_data].values

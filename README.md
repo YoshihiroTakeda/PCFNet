@@ -1,6 +1,9 @@
 # PCFNet
 This repository is the official implementation of the paper "Mining for Protoclusters at $z\sim4$ from photometric datasets with Deep Learning" ([Takeda et al. 2024](https://doi.org/10.3847/1538-4357/ad8a67)).
 
+## Demostraion of PCFNet with mock data
+Now, you can find the demonstration of the PCFNet with mock data in the notebook `mock_demonstration.ipynb`.
+
 
 ## Usage
 Clone this repository and follow the instructions below.
@@ -56,7 +59,7 @@ python src/predict_obs.py --config config/PCFNet_configure.yaml
 
 ### or...
 ## modified src/run_all.sh and run the following command
-bash src/run_all.sh
+src/run_all.sh
 ```
 
 #### 3.1 [Optional] WandB integration
