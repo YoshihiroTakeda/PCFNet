@@ -57,7 +57,7 @@ gamma: 0.8
 batch_size: 512
 lr: 0.002
 model_args:
-    dim: 14  # the number of input features + n_gaussians * 3
+    dim: 14  # the number of input features + n_gaussians * 3 + 1
     k: 2
     neighbor: 5
     connection: concat
