@@ -2,7 +2,8 @@
 This repository is the official implementation of the paper "Mining for Protoclusters at $z\sim4$ from photometric datasets with Deep Learning" ([Takeda et al. 2024](https://doi.org/10.3847/1538-4357/ad8a67)).
 
 ## Demostraion of PCFNet with mock data
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/YoshihiroTakeda/PCFNet/blob/main/example/mock_demonstration.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/YoshihiroTakeda/PCFNet/blob/main/example/mock_demonstration.ipynb)
+
 
 Now, you can find the demonstration of the PCFNet with mock data in the notebook `mock_demonstration.ipynb`.
 
