@@ -1,11 +1,11 @@
 # PCFNet
-This repository is the official implementation of the paper "Mining for Protoclusters at $z\sim4$ from photometric datasets with Deep Learning" ([Takeda et al. 2024](https://doi.org/10.3847/1538-4357/ad8a67)).
+This repository is the official implementation of PCFNet in the paper "Mining for Protoclusters at $z\sim4$ from Photometric Datasets with Deep Learning" ([Takeda et al. 2024](https://doi.org/10.3847/1538-4357/ad8a67)).
 
 ## Demostraion of PCFNet with mock data
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/YoshihiroTakeda/PCFNet/blob/main/example/mock_demonstration.ipynb)
 
 
-Now, you can find the demonstration of the PCFNet with mock data in the notebook `mock_demonstration.ipynb`.
+Now, you can find the demonstration of PCFNet with mock data in the notebook `example/mock_demonstration.ipynb`.
 
 
 ## Usage
@@ -39,7 +39,7 @@ python -m pip install -e ".[all]"
 
 ### 2. Data Preparation
 1. Prepare the data for training and prediction
-    - Simulation data (PCcone): Please contact the authors of Araya-Araya et al. (2021).
+    - Simulation data (PCcone): Please contact the authors of Araya-Araya et al. (2021). You may also need halo information from Millennium Simulation to label as protocluster.
     - Observation data: Please obtain the obserbational data and random points data from HSC-SSP data release.
     - Depth information : Please prepare the $5\sigma$ depth information in the PCcone as yaml format.
     
