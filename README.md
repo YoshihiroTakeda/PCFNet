@@ -1,5 +1,7 @@
 # PCFNet
-This repository is the official implementation of PCFNet in the paper "Mining for Protoclusters at $z\sim4$ from Photometric Datasets with Deep Learning" ([Takeda et al. 2024](https://doi.org/10.3847/1538-4357/ad8a67)).
+[![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg)](http://arxiv.org/abs/2411.11956)
+
+This repository is the official implementation of PCFNet in the paper "Mining for Protoclusters at $z\sim4$ from Photometric Datasets with Deep Learning" ([Takeda et al. 2024](http://arxiv.org/abs/2411.11956)).
 
 ## Demostraion of PCFNet with mock data
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/YoshihiroTakeda/PCFNet/blob/main/example/mock_demonstration.ipynb)
@@ -105,6 +107,6 @@ If you use this code for your research, please cite our paper.
   author={Takeda, Yoshihiro and Kashikawa, Nobunari and Ito, Kei and Toshikawa, Jun and Momose, Rieko and Fujiwara, Kent and Liang, Yongming and Ishimoto, Rikako and Yoshioka, Takehiro and Arita, Junya and Kubo, Mariko and Uchiyama, Hisakazu},
   year={2024},
   journal={ApJ},
-  url={https://doi.org/10.3847/1538-4357/ad8a67}
+  url={http://arxiv.org/abs/2411.11956}
 }
 ```
