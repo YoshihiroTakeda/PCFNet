@@ -1,5 +1,5 @@
 # PCFNet
-[![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg)](http://arxiv.org/abs/2411.11956)
+[![arXiv](https://img.shields.io/badge/arXiv-2411.11956-b31b1b.svg)](http://arxiv.org/abs/2411.11956)
 
 This repository is the official implementation of PCFNet in the paper "Mining for Protoclusters at $z\sim4$ from Photometric Datasets with Deep Learning" ([Takeda et al. 2024](http://arxiv.org/abs/2411.11956)).
 
