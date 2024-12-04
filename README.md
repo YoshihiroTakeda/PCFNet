@@ -107,7 +107,10 @@ If you use this code for your research, please cite our paper.
   author = {{Takeda}, Yoshihiro and {Kashikawa}, Nobunari and {Ito}, Kei and {Toshikawa}, Jun and {Momose}, Rieko and {Fujiwara}, Kent and {Liang}, Yongming and {Ishimoto}, Rikako and {Yoshioka}, Takehiro and {Arita}, Junya and {Kubo}, Mariko and {Uchiyama}, Hisakazu},
   year={2024},
   journal={ApJ},
-  url={http://arxiv.org/abs/2411.11956},
+  volume = {977},
+  number = {1},
+  pages = {81},
+  url={http://doi.org/10.3847/1538-4357/ad8a67},
   adsurl = {https://ui.adsabs.harvard.edu/abs/2024arXiv241111956T}
 }
 ```
